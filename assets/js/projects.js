@@ -1,14 +1,44 @@
 /* =========================================================
    Project portfolio data
    ---------------------------------------------------------
-   These are SAMPLE placeholder projects. Replace them with real jobs.
+   The two restaurant entries reflect real client work (add specific locations,
+   dates and photos when available). The rest are SAMPLE placeholders.
    - category: "residential" | "commercial"  (main filter)
-   - millwork: true  -> also shows under the "Millwork" filter
+   - millwork: true    -> also shows under the "Millwork" filter
+   - restaurant: true  -> also shows under the "Restaurants" filter
    - image:    path to a real photo, e.g. "assets/img/projects/hoboken-kitchen.jpg".
                If left empty, a drawn illustration based on `art` is shown.
-   - art:      "kitchen" | "library" | "ceiling" | "desk" | "bar" | "stair"
+   - art:      "kitchen" | "library" | "ceiling" | "desk" | "bar" | "booth" | "stair"
    ========================================================= */
 window.PROJECTS = [
+  {
+    id: "olive-garden",
+    title: "Olive Garden Restaurants",
+    location: "Multiple locations · for Darden Restaurants",
+    category: "commercial",
+    restaurant: true,
+    millwork: true,
+    art: "booth",
+    image: "",
+    summary: "We've done a number of projects for Darden Restaurants at Olive Garden locations, including build-outs, remodels and millwork. Each one is built to Darden's brand standards and scheduled so the restaurant reopens on time.",
+    scope: "Restaurant build-outs, remodels, booths, host stands, millwork",
+    duration: "",
+    materials: ""
+  },
+  {
+    id: "nyc-fine-dining",
+    title: "High-End NYC Restaurants",
+    location: "New York, NY",
+    category: "commercial",
+    restaurant: true,
+    millwork: true,
+    art: "bar",
+    image: "",
+    summary: "Interiors for some of New York City's high-end restaurants: statement bars, custom banquettes, wall paneling and detailed millwork, built to the standards of the city's top designers and coordinated with tight Manhattan job sites.",
+    scope: "Interior construction, bar and back-bar millwork, banquettes, paneling",
+    duration: "",
+    materials: ""
+  },
   {
     id: "brownstone-kitchen",
     title: "Brownstone Kitchen",
@@ -36,19 +66,6 @@ window.PROJECTS = [
     materials: "Quartersawn white oak, brass hardware"
   },
   {
-    id: "coffered-dining",
-    title: "Coffered Dining Room",
-    location: "Weehawken, NJ",
-    category: "residential",
-    millwork: true,
-    art: "ceiling",
-    image: "",
-    summary: "A coffered ceiling, raised-panel wainscoting and new crown moulding brought back the character of a dining room in a pre-war home.",
-    scope: "Millwork, finish carpentry, paint prep",
-    duration: "4 weeks",
-    materials: "Poplar, MDF panels, painted finish"
-  },
-  {
     id: "office-reception",
     title: "Corporate Reception",
     location: "Jersey City, NJ",
@@ -60,19 +77,6 @@ window.PROJECTS = [
     scope: "Commercial millwork, install, coordination with GC",
     duration: "5 weeks",
     materials: "White oak veneer, solid surface, steel"
-  },
-  {
-    id: "restaurant-bar",
-    title: "Neighborhood Restaurant Bar",
-    location: "Union City, NJ",
-    category: "commercial",
-    millwork: true,
-    art: "bar",
-    image: "",
-    summary: "A 24-foot bar with a back-bar display and booth seating, built for a busy kitchen and daily wear.",
-    scope: "Interior build-out, bar millwork, booths",
-    duration: "8 weeks",
-    materials: "Sapele, quartz, blackened steel"
   },
   {
     id: "townhouse-renovation",

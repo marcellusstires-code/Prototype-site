@@ -4,10 +4,10 @@ A fast, modern static website for **Gaul Brothers Construction**, a general cont
 
 ## Sections
 - **Hero:** headline, calls to action and quick company highlights
-- **Services:** general contracting, millwork, cabinetry, finish carpentry, renovations, commercial interiors
+- **Services:** general contracting, millwork, cabinetry, finish carpentry, renovations, restaurant & commercial
 - **About:** company story, what sets the company apart and a 4-step process
 - **Founders:** profile cards for the two brothers
-- **Projects:** a filterable portfolio (Residential, Commercial, Millwork). Each project opens a detail window.
+- **Projects:** a filterable portfolio (Residential, Restaurants, Commercial, Millwork). Each project opens a detail window.
 - **Contact:** phone, email, address, hours, an embedded map and an estimate request form with validation
 
 ## File layout
@@ -27,11 +27,12 @@ Some details came from public business listings. The rest is placeholder copy.
 | Address: 808 21st St, Union City, NJ 07087 | From public listings. Please confirm | `index.html` (contact + footer) |
 | Phone: (201) 223-5865 | From public listings. Please confirm | `index.html` |
 | Francis X. Gaul, Co-Founder & President | Name from public records. Title and bio are placeholders | `index.html` → `#founders` |
-| Second brother's name and bio | **Placeholder:** `[Brother's Name]` | `index.html` → `#founders` |
+| John Gaul, Co-Founder & Head of Millwork | Name confirmed. Title and bio are placeholders | `index.html` → `#founders` |
 | Email `info@gaulbrothers.com` | **Placeholder** | `index.html`, `assets/js/main.js` (`CONTACT_EMAIL`) |
 | Founded 2000 | Based on a 2000 NJ corporate filing. Please confirm | hero stats |
 | Business hours, service area | **Placeholder** | `index.html` |
-| All 6 projects | **Sample placeholders** | `assets/js/projects.js` |
+| Olive Garden (Darden Restaurants) and high-end NYC restaurant projects | Real client work. Add restaurant names, locations, dates and photos (and check you have permission to name clients) | `assets/js/projects.js` |
+| 4 other projects (homes, office) | **Sample placeholders** | `assets/js/projects.js` |
 | Founder and project photos | Illustrations/initials until real photos are added | see below |
 
 ## Adding real photos

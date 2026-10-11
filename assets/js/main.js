@@ -63,6 +63,7 @@
     ceiling: ["#3a342c", "#efe8dc", "#b9874a"],
     desk:    ["#1f2326", "#c9a77c", "#f1ebe1"],
     bar:     ["#24160f", "#7a4a2a", "#d8a463"],
+    booth:   ["#2c1d16", "#a8794e", "#e3b877"],
     stair:   ["#2e2720", "#a37b52", "#efe8dc"]
   };
   function art(type) {
@@ -113,6 +114,22 @@
         for (i = 0; i < 8; i++) s += '<line x1="' + (34 + i * 41.5) + '" y1="306" x2="' + (34 + i * 41.5) + '" y2="436"/>';
         for (i = 0; i < 4; i++) s += '<line x1="' + (70 + i * 90) + '" y1="380" x2="' + (70 + i * 90) + '" y2="480" stroke="' + hi + '" stroke-width="3"/><ellipse cx="' + (70 + i * 90) + '" cy="380" rx="22" ry="6" fill="' + mid + '"/>';
         break;
+      case "booth":
+        // pendant lights
+        for (i = 0; i < 3; i++) s += '<line x1="' + (80 + i * 120) + '" y1="0" x2="' + (80 + i * 120) + '" y2="90" stroke="' + hi + '"/><path d="M' + (56 + i * 120) + ' 112 Q' + (80 + i * 120) + ' 76 ' + (104 + i * 120) + ' 112Z" fill="' + hi + '" stroke="none" opacity=".85"/>';
+        // wainscot wall
+        s += '<line x1="0" y1="250" x2="400" y2="250" stroke="' + hi + '" stroke-width="3"/>';
+        for (i = 0; i < 6; i++) s += '<rect x="' + (12 + i * 66) + '" y="150" width="54" height="86" opacity=".5"/>';
+        // booths with tables
+        for (i = 0; i < 3; i++) {
+          var x0 = 20 + i * 125;
+          s += '<path d="M' + x0 + ' 460V280q0-14 14-14h82q14 0 14 14v180" fill="' + mid + '" fill-opacity=".25"/>';
+          for (var t = 1; t < 5; t++) s += '<line x1="' + (x0 + t * 22) + '" y1="272" x2="' + (x0 + t * 22) + '" y2="360" opacity=".6"/>';
+          s += '<rect x="' + (x0 + 10) + '" y="360" width="90" height="24" fill="' + mid + '" fill-opacity=".4"/>';
+          s += '<line x1="' + (x0 + 20) + '" y1="396" x2="' + (x0 + 90) + '" y2="396" stroke="' + hi + '" stroke-width="4"/><line x1="' + (x0 + 55) + '" y1="396" x2="' + (x0 + 55) + '" y2="460" stroke="' + hi + '" stroke-width="3"/>';
+        }
+        s += '<line x1="0" y1="460" x2="400" y2="460"/>';
+        break;
       case "stair":
         var path = "M40 470";
         for (i = 0; i < 10; i++) path += " v-36 h32";
@@ -134,7 +151,7 @@
       : art(p.art);
   }
   function label(p) {
-    var c = p.category.charAt(0).toUpperCase() + p.category.slice(1);
+    var c = p.restaurant ? "Restaurant" : p.category.charAt(0).toUpperCase() + p.category.slice(1);
     return p.millwork ? c + " · Millwork" : c;
   }
 
@@ -142,7 +159,7 @@
   var grid = $("#project-grid");
   var projects = window.PROJECTS || [];
   grid.innerHTML = projects.map(function (p) {
-    return '<button class="project-card reveal" data-id="' + p.id + '" data-category="' + p.category + '" data-millwork="' + !!p.millwork + '" aria-haspopup="dialog">' +
+    return '<button class="project-card reveal" data-id="' + p.id + '" data-category="' + p.category + '" data-millwork="' + !!p.millwork + '" data-restaurant="' + !!p.restaurant + '" aria-haspopup="dialog">' +
       '<div class="art">' + media(p) + "</div>" +
       '<div class="info"><span class="cat">' + label(p) + '</span><h3>' + p.title + '</h3><span class="loc">' + p.location + '</span><br><span class="more">View project →</span></div>' +
       "</button>";
@@ -153,7 +170,7 @@
       var f = btn.dataset.filter;
       $$(".filter").forEach(function (b) { var on = b === btn; b.classList.toggle("is-active", on); b.setAttribute("aria-pressed", String(on)); });
       $$(".project-card").forEach(function (card) {
-        var show = f === "all" || (f === "millwork" ? card.dataset.millwork === "true" : card.dataset.category === f);
+        var show = f === "all" || (f === "millwork" || f === "restaurant" ? card.dataset[f] === "true" : card.dataset.category === f);
         card.classList.toggle("is-hidden", !show);
       });
     });
