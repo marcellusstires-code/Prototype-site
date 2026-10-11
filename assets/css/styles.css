@@ -299,7 +299,8 @@ input, select, textarea {
 textarea { resize: vertical; min-height: 130px; }
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); background: #fff; box-shadow: 0 0 0 3px rgba(185,135,74,.18); }
 .field.has-error input, .field.has-error select, .field.has-error textarea { border-color: var(--error); }
-.error { color: var(--error); font-size: .8rem; margin: 5px 0 0; min-height: 0; }
+.error { color: var(--error); font-size: .8rem; margin: 5px 0 0; }
+.error:empty { display: none; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form-status { margin: 14px 0 0; font-size: .92rem; text-align: center; }
 .form-status.ok { color: var(--ok); }
